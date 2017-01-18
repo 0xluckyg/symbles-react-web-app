@@ -1,0 +1,32 @@
+.tableSubviewTr{
+    height: auto;
+    border-collapse: collapse;
+}
+
+.tableSubviewTd{
+    height: auto;
+    padding: 0;
+}
+
+/*Transitions*/
+.enter {
+    opacity: 0;
+    max-height: 0px;
+}
+
+.enterActive {
+    opacity: 1;
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+    overflow: hidden;
+}
+
+.leave{
+    max-height: 500px;
+}
+
+.leaveActive{
+    max-height: 0px;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+}

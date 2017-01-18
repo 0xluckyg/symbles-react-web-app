@@ -1,0 +1,57 @@
+table {
+    position: absolute;
+    width: 100%;
+    margin-top: 50px;
+    border: 0px;
+    border-collapse: collapse;
+}
+
+th {
+    height: 60px;
+}
+
+tr {
+    height: 50px;
+    text-align: center;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+td:first-child {
+    width: 10%;
+    background-color: white;
+}
+
+td:nth-child(2) {
+    width: 15%;
+}
+
+td:nth-child(3) {
+    width: 25%;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+tbody:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+@media screen and (max-width: 700px) {
+    table {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    table {
+        font-size: 10px;
+    }
+}

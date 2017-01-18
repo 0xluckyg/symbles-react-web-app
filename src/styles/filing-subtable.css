@@ -1,0 +1,98 @@
+.tableSubviewDiv {
+    height: auto;
+    width: 100%;
+
+    background-color: white;
+}
+
+.buttonsDiv{
+    height: auto;
+    margin-left: 10%;
+    border-bottom: thin solid #f3f3f3;
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+.buttonDiv{
+    height: auto;
+    display:inline-block;
+    width:50%;
+}
+
+.buttonDiv p{
+    margin: 0px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.buttonDiv p:hover{
+    font-weight: 600;    
+}
+
+.customTableWrapper{
+    height: 265px;
+    overflow-y: scroll;
+}
+
+.customTable{
+    display: table;
+    margin-left: 10%;
+    width: 90%;
+
+    border-collapse: collapse;
+}
+
+.customTbody{
+    display: table-row-group;
+    width: 100%;
+}
+
+.customTr{
+    display: table-row;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+}
+
+.customTr:last-child{
+    border-bottom: thin solid #f3f3f3;
+    margin-bottom: 15px;
+}
+
+.customThead{
+    display: table-row-group;
+    width: 100%;
+
+    cursor: default;
+}
+
+.customThead .customTd {
+    font-weight: 600;
+}
+
+.selected {
+    font-weight: 600;
+}
+
+.customTd{
+    display: table-cell;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+.noData {
+    height: 100%;
+    margin-left: 10%;
+    width: 90%;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

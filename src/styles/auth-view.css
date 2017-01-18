@@ -1,0 +1,284 @@
+.shade{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0,0,0,0.6);
+}
+
+.whiteBox{
+    position: relative;
+
+    width: 600px;
+    height: 450px;
+
+    background-color: white;
+}
+
+.switchButtons{
+    width: 100%;
+    height: 60px;
+
+    cursor: pointer;
+}
+
+.switchButton{
+    display: inline-block;
+    text-align: center;
+
+    width: 50%;
+
+    font-size: 20px;
+    line-height: 60px;
+}
+
+.switchNotSelected {
+    background-color: #f3f3f3;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.switchNotSelected:hover {
+    background-color: white;
+    transition: 0.3s;
+}
+
+
+/*LOGIN*/
+.logInBox {
+    margin-top: 60px;
+}
+
+.logInBox input {
+    display: block;
+
+    height: 30px;
+    width: 250px;
+    padding: 0;
+    margin : 20px auto;
+
+    font-size:20px;
+    font-weight: 200;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.logInBox input:focus {
+    outline: none;
+}
+
+.logInBox input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.loginSubmit {
+    display: block;
+    text-align: center;
+
+    width: 200px;
+    height: 50px;
+    margin : auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    font-family: 'Raleway';
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.loginSubmit:hover{
+    font-weight: 400;
+}
+
+.loginSubmit:focus {
+    outline: none;
+}
+
+/*SIGNUP*/
+.signupInputDiv{
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+
+    height: auto;
+    width: 50%;
+}
+
+.signupBox {
+    margin-top: 35px;
+}
+
+.signupBox input {
+    display: inline-block;
+
+    height: 30px;
+    width: 230px;
+    padding: 0;
+    margin : 20px auto;
+
+    font-size:20px;
+    font-weight: 200;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.signupBox input:focus {
+    outline: none;
+}
+
+.signupBox input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.signupSubmit {
+    display: block;
+    text-align: center;
+
+    width: 200px;
+    height: 50px;
+    margin : auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    font-family: 'Raleway';
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.signupSubmit:hover{
+    font-weight: 400;
+}
+
+.signupSubmit:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 510px) {
+    .signupBox input {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .signupBox input {
+        width: 150px;
+    }
+}
+
+/*For both login and signup*/
+.externalAuth {
+    position: absolute;
+    bottom: 0;
+
+    height: 120px;
+    width: 100%;
+}
+
+.facebookAuth {
+    text-align: center;
+
+    height: 50%;
+    width: 100%;
+
+    background-color: #3B5998;
+    color: white;
+    line-height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 0px;
+    text: hidden;
+
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.facebookAuth:focus {
+    outline: none;
+}
+
+.facebookAuth:hover{
+    background-color: #324b81;
+    transition: 0.3s;
+}
+
+.googleAuth{
+    text-align: center;
+
+    height: 50%;
+    width: 100%;
+
+    background-color: #D84B37;
+    color: white;
+    font-size: 20px;
+    line-height: 60px;
+    cursor: pointer;
+    border: 0px;
+
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.googleAuth:focus {
+    outline: none;
+}
+
+.googleAuth:hover{
+    transition: 0.3s;
+    background-color: #aa3222;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size:20px;
+    font-family: 'Raleway';
+    font-weight: 100;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    font-size:20px;
+    font-family: 'Raleway';
+    font-weight: 100;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    font-size:20px;
+    font-family: 'Raleway';
+    font-weight: 100;
+}
+:-moz-placeholder { /* Firefox 18- */
+    font-size:20px;
+    font-family: 'Raleway';
+    font-weight: 100;
+}
+
+/*Animations*/
+.shadeAppear{
+    opacity: 0;
+}
+
+.shadeAppearActive{
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}

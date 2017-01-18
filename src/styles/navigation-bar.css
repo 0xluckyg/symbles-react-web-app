@@ -1,0 +1,157 @@
+.navBar {
+    overflow: hidden;
+    position: fixed;
+    z-index: 3;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+    background-color: white;
+    border-bottom: thin solid #f3f3f3;
+    font-size: 30;
+    font-weight: 100;
+}
+
+.navBar li {
+    float: left;
+    display: block;
+    text-align: center;
+
+    padding: 14px 16px;
+
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: white;
+
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navBar .navLinkRight{
+    float: right;
+}
+
+.navBar li:hover{
+    background-color: #f7f7f7;
+
+    transition: 0.3s;
+}
+
+.navLink {
+    padding: 14px 0px;
+
+    text-decoration: none;
+    color: black;
+}
+
+.navBar li:first-child{
+    margin-left: 20px;
+}
+
+.navBar li:nth-child(4){
+    margin-right: 20px;
+}
+
+.navBar li:last-child{
+    display: none;
+}
+
+@media screen and (max-width: 510px) {
+    .navBar .navLinkRight{
+        display: none;
+    }
+    .navLinkLeft:nth-child(2){
+        display: none;
+    }
+    .navLinkLeft:nth-child(3){
+        display: none;
+    }
+    .navLinkLeft:nth-child(2) .navLink{
+        display: none;
+    }
+    .navLinkLeft:nth-child(3) .navLink{
+        display: none;
+    }
+    .navBar li:last-child{
+        display: inline-block;
+    }
+}
+
+.burgerBar{
+    position: fixed;
+    z-index: 1;
+
+    padding-left: 0;
+    width: 100%;
+
+    margin: 0;
+    padding-top: 48px;
+}
+
+.burgerBar li {
+    display: block;
+    text-align: left;
+
+    padding: 14px 36px;
+    width: 100%;
+
+    font-weight: 100;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: white;
+    border-bottom: thin solid #f3f3f3;
+
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    -ms-transition: background-color 0.3s ease-in-out;
+    -o-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 510px) {
+    .burgerBar{
+        display: none;
+    }
+    .burgerBar li{
+        display: none;
+    }
+}
+
+.navBar .navLinkRight{
+    float: right;
+}
+
+.navBar li:hover{
+    background-color: #f7f7f7;
+
+    transition: 0.3s;
+}
+
+.enter {
+    opacity: 0;
+    max-height: 0px;
+}
+
+.enterActive {
+    opacity: 1;
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+    overflow: hidden;
+}
+
+.leave{
+    max-height: 500px;
+}
+
+.leaveActive{
+    max-height: 0px;
+    transition: max-height 0.5s ease-out;
+    overflow: hidden;
+}
