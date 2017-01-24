@@ -48,3 +48,17 @@ export const showLogInOrSignUpView = (type) => {
         payload: type
     }
 }
+
+export const signInUser = (userInfo) => {
+    return {
+        type: keys.USER_SIGN_IN,
+        payload: userInfo
+    }
+}
+
+export const signUpUser = (userInfo) => {
+    return {
+        type: keys.USER_SIGN_UP,
+        payload: userInfo
+    }
+}

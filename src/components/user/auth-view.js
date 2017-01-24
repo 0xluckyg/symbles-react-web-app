@@ -60,7 +60,8 @@ class AuthView extends Component {
 }
 
 AuthView.propTypes = {
-    authView: PropTypes.number.isRequired
+    authView: PropTypes.number.isRequired,
+    showLogInOrSignUpView: PropTypes.func
 }
 
 function mapStateToProps({authView}){

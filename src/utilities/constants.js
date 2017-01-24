@@ -6,6 +6,8 @@ export const CLOSE_OTHER_CELLS = 'CLOSE_OTHER_CELLS';
 export const GET_BUYER_HISTORY = 'GET_BUYER_HISTORY';
 export const RESET_BUYER_HISTORY = 'RESET_BUYER_HISTORY';
 export const USER_AUTH_VIEW = 'USER_AUTH_VIEW';
+export const USER_SIGN_UP = 'USER_SIGN_UP';
+export const USER_SIGN_IN = 'USER_LOG_IN';
 
 //company filing keys
 export const TICKER = 'TICKER';

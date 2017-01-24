@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import styles from '../styles/navigation-bar.css';
 import AuthView from './user/shade';
@@ -29,6 +29,8 @@ class NavigationBar extends Component {
         }
 
         this.openHamburger = this.openHamburger.bind(this);
+        this.isSubscribed = this.isSubscribed.bind(this);
+        this.isLoggedIn = this.isLoggedIn.bind(this);
     }
 
     //0: none
@@ -39,6 +41,28 @@ class NavigationBar extends Component {
             this.setState({hamburgerIsOpen:false});
         } else {
             this.setState({hamburgerIsOpen:true});
+        }
+    }
+
+    isSubscribed(){
+        if (!this.props.userInfo.userIsSubscribed) {
+            return <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/subscribe">SUBSCRIBE</Link> </li>
+        }
+        return null
+    }
+
+    isLoggedIn(type){
+        if (!this.props.userInfo.userIsLoggedIn){
+            switch(type){
+                case 0:
+                    return <li onClick={() => this.props.showLogInOrSignUpView(2)} className={styles.navLinkRight}> SIGN UP </li>
+                case 1:
+                    return <li onClick={() => this.props.showLogInOrSignUpView(1)} className={styles.navLinkRight}> LOG IN </li>
+                default:
+                    null
+            }
+        } else {
+            if (type == 0) { return <li className={styles.navLinkRight}> Welcome {this.props.userInfo.userFirstName} </li> } else {return null}
         }
     }
 
@@ -58,11 +82,11 @@ class NavigationBar extends Component {
         return (
             <div>
                 <ul className={styles.navBar}>
-                    <li onClick={() => this.props.showLogInOrSignUpView(0)} className={styles.navLinkLeft}> <Link className={styles.navLink} to="/">HOME</Link> </li>
-                    <li onClick={() => this.props.showLogInOrSignUpView(0)} className={styles.navLinkLeft}> <Link className={styles.navLink} to="/about">ABOUT</Link> </li>
-                    <li onClick={() => this.props.showLogInOrSignUpView(0)} className={styles.navLinkLeft}> <Link className={styles.navLink} to="/subscribe">SUBSCRIBE</Link> </li>
-                    <li onClick={() => this.props.showLogInOrSignUpView(2)} className={styles.navLinkRight}> SIGN UP </li>
-                    <li onClick={() => this.props.showLogInOrSignUpView(1)} className={styles.navLinkRight}> LOG IN </li>
+                    <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/">HOME</Link> </li>
+                    <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/about">ABOUT</Link> </li>
+                    {this.isSubscribed()}
+                    {this.isLoggedIn(0)}
+                    {this.isLoggedIn(1)}
                     <li onClick={() => this.openHamburger()} className={styles.navLinkRight}> <i className="fa fa-bars fa-lg"></i> </li>
                 </ul>
                 <Transition {...transitionProperties} transitionName={transitionNames}>
@@ -74,8 +98,13 @@ class NavigationBar extends Component {
     }
 }
 
-function mapStateToProps({authView}){
-    return {authView}
+NavigationBar.propTypes = {
+    authView: PropTypes.number.isRequired,
+    showLogInOrSignUpView: PropTypes.func
+}
+
+function mapStateToProps({authView, userInfo}){
+    return {authView, userInfo}
 }
 
 function mapDispatchToProps(dispatch){
