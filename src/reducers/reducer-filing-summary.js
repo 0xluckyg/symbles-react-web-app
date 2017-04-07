@@ -2,15 +2,15 @@ import * as keys from '../utilities/constants';
 
 //Helper function
 const calculateSummary = (posts) => {
-    var listOfCompanySummaries = {}
+    let listOfCompanySummaries = {}
 
     //Loop through each company in the array
     Object.keys(posts).map(id => {
-        var nameArray = []
-        var mostRecentDate = ''
-        var numberOfShares = 0, moneySpent = 0
+        let nameArray = []
+        let mostRecentDate = ''
+        let numberOfShares = 0, moneySpent = 0
 
-        var purchaseHistoryArray = posts[id][keys.insider_purchases]
+        let purchaseHistoryArray = posts[id][keys.insider_purchases]
         listOfCompanySummaries[id] = {}
 
         //Loop through each person in the company
@@ -20,7 +20,7 @@ const calculateSummary = (posts) => {
 
             //Loop through each transaction per person
             history[keys.purchase_history].map(purchaseDetail => {
-                var transactionAmount = purchaseDetail[keys.shares_transacted] * purchaseDetail[keys.share_price]
+                let transactionAmount = purchaseDetail[keys.shares_transacted] * purchaseDetail[keys.share_price]
                 if (purchaseDetail[keys.transaction] === 'P') moneySpent += transactionAmount
                 numberOfShares += purchaseDetail[keys.shares_transacted]
                 return null;
@@ -41,8 +41,8 @@ const calculateSummary = (posts) => {
     function compareDates(date1String, date2String){
         if (date1String === '') return date2String
 
-        var date1 = new Date(date1String)
-        var date2 = new Date(date2String)
+        let date1 = new Date(date1String)
+        let date2 = new Date(date2String)
 
         // date1 > date2 if date1 is more recent
         return (date1 > date2) ? date1String : date2String
@@ -50,9 +50,9 @@ const calculateSummary = (posts) => {
 
     //Function for creating a name list
     function createNameString(arrayOfNames) {
-        var returnName = ''
+        let returnName = ''
         arrayOfNames.map(name => {
-            var tempName = name.split(' ')
+            let tempName = name.split(' ')
             returnName += tempName[0] + ' ' + tempName[tempName.length-1].charAt(0) + ', '
             return null;
         })

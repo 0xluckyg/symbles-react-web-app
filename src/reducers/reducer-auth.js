@@ -13,7 +13,7 @@ export const ReducerAuthView = (state, action) => {
 
 function fetchUser(userInfo){
 
-    var returnUser = {
+    let returnUser = {
         userEmail: userInfo.userEmail,
         userFirstName: "User",
         userLastName: "Name",
@@ -27,7 +27,7 @@ function fetchUser(userInfo){
 
 function registerUser(userInfo){
 
-    var returnUser = {
+    let returnUser = {
         userEmail: userInfo.userEmail,
         userFirstName: userInfo.userFirstName,
         userLastName: userInfo.userLastName,

@@ -1,9 +1,9 @@
 import * as keys from '../utilities/constants';
 
 function formatBuyer(buyerData){
-    var listOfBuys = [];
+    let listOfBuys = [];
     buyerData[1][keys.purchase_history].map(purchase => {
-        var purchaseSummary = {};
+        let purchaseSummary = {};
 
         purchaseSummary[keys.BUYER] = buyerData[0] + ' (' + buyerData[1][keys.buyer_title] + ')';
         purchaseSummary[keys.FILING_DATE] = purchase[keys.filing_date];
@@ -17,8 +17,8 @@ function formatBuyer(buyerData){
     })
 
     listOfBuys.sort(function(purchase1, purchase2) {
-        var date1 = new Date(purchase1[keys.FILING_DATE]);
-        var date2 = new Date(purchase2[keys.FILING_DATE]);
+        let date1 = new Date(purchase1[keys.FILING_DATE]);
+        let date2 = new Date(purchase2[keys.FILING_DATE]);
 
         return (date1 > date2) ? -1 : 1;
     });

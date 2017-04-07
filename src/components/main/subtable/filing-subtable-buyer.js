@@ -48,7 +48,7 @@ const NoBuyerTable = ({text}) => {
 
 class FilingSummaryBuyer extends Component{
     render(){
-        var textWhenNoData = "PLEASE SELECT A BUYER FROM 'BUYER LIST'";
+        let textWhenNoData = "PLEASE SELECT A BUYER FROM 'BUYER LIST'";
 
         return(
             <div className={subtableStyles.customTableWrapper}>
