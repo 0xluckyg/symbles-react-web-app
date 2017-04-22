@@ -1,3 +1,4 @@
+export const SERVER = 'http://localhost:3000';
 
 //Internal keys are all uppercase
 export const GET_FILINGS = 'FETCH_FILINGS';

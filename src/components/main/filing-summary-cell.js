@@ -40,7 +40,7 @@ class FilingSummaryCell extends Component {
             isOpen:false
         }
 
-        this.positiveOrNegativeChange = this.positiveOrNegativeChange.bind(this);
+        this.buyOrSell = this.buyOrSell.bind(this);
         this.getTicker = this.getTicker.bind(this);
     }
 
@@ -53,11 +53,11 @@ class FilingSummaryCell extends Component {
         }
     }
 
-    positiveOrNegativeChange(){
-        if (this.props.filingSummary[keys.PRICE_CHANGE] >= 0) {
-            return <td className={styles.positive}>+{this.props.filingSummary[keys.PRICE_CHANGE]}%</td>
+    buyOrSell(){
+        if (this.props.filing.transactionCode === 'P') {
+            return <td className={styles.positive}>{this.props.filing.transactionCode}</td>
         } else {
-            return <td className={styles.negative}>{this.props.filingSummary[keys.PRICE_CHANGE]}%</td>
+            return <td className={styles.negative}>{this.props.filing.transactionCode}</td>
         }
     }
 
@@ -72,27 +72,26 @@ class FilingSummaryCell extends Component {
         }
     }
 
-    render() {
-        return (
+    render() {        
+        return (            
             <tbody>
                 <tr onClick={() => this.getTicker()}>
-                    <td>{this.props.filingSummary[keys.MOST_RECENT]}</td>
-                    <td>{this.props.ticker}</td>
-                    <td>{this.props.filingSummary[keys.RECENT_BUYS]}</td>
-                    <td>{this.props.filingSummary[keys.SHARES]}</td>
-                    <td>{this.props.filingSummary[keys.AMOUNT]}</td>
-                    {this.positiveOrNegativeChange()}
-                    <td>$1.6</td>
+                    <td>{this.props.filing.date}</td>
+                    <td>{this.props.filing.ticker}</td>
+                    <td>{this.props.filing.reporter}</td>
+                    <td>{this.props.filing.transactionAmount}</td>
+                    <td>{this.props.filing.transactionPrice}</td>
+                    {this.buyOrSell()}
+                    <td>{this.props.filing.ownershipNature}</td>                    
                 </tr>
-                <Subtable isOpen={this.state.isOpen} ticker={this.props.ticker}/>
+                <Subtable isOpen={this.state.isOpen} ticker={this.props.filing.ticker}/>
             </tbody>
         );
     }
 };
 
 FilingSummaryCell.propTypes = {
-    ticker: PropTypes.string.isRequired,
-    filingSummary: PropTypes.object.isRequired,
+    filing: PropTypes.object.isRequired,
     getBuyHistory: PropTypes.func.isRequired,
     closeOtherCells: PropTypes.func.isRequired
 }

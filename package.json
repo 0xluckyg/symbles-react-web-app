@@ -1,5 +1,5 @@
 {
-  "name": "InsiderProject",
+  "name": "symbles",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server --progress --inline --hot",
     "postinstall": "webpack -p",
-    "start": "node server.js"
+    "start": "webpack-dev-server --progress --inline --hot"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,7 @@
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0"

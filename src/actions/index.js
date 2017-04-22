@@ -1,20 +1,13 @@
 import * as keys from '../utilities/constants';
 import * as mock from '../utilities/mock-files';
 
-export const getFilings = () => {
-    return {
-        type: keys.GET_FILINGS,
-        payload: Promise.resolve(
-            mock.filings
-        )
-    }
-}
+export * from './action-filing-summary';
 
 export const getBuyHistory = (id) => {
     return {
         type: keys.GET_BUY_HISTORY,
         payload: Promise.resolve(
-            mock.filings[id]
+            mock.filings
         )
     }
 }
@@ -23,7 +16,7 @@ export const getBuyerHistory = (name) => {
     return {
         type: keys.GET_BUYER_HISTORY,
         payload: Promise.resolve(
-            [name, mock.buyers[name]]
+            mock.filings
         )
     }
 }

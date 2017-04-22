@@ -11,7 +11,8 @@ class FilingSummaryList extends Component {
     constructor(props){
         super(props)
 
-        this.subscribeHeader = this.subscribeHeader.bind(this)
+        this.subscribeHeader = this.subscribeHeader.bind(this);
+        this.renderFilings = this.renderFilings.bind(this);
     }
 
     subscribeHeader(){
@@ -25,31 +26,41 @@ class FilingSummaryList extends Component {
         return null
     }
 
+    renderFilings(){        
+        this.props.filingSummary.map(filing => {            
+            return (
+                <FilingSummaryCell key={filing.ticker} filing={filing}/>
+            )
+        })        
+    }
+
     componentWillMount(){
-        this.props.getFilings();
+        this.props.getFilings();        
     }
 
     render() {
+        //Date, Ticker, Transactions, Amount, Price, Transaction Code, Ownership Type
         return (
             <div className={styles.mainDiv}>
+                {console.log(this.props.filingSummary)}
                 {this.subscribeHeader()}
-                <table className={styles.filingSummaryTable}>
+                <table className={styles.filingSummaryTable}>                    
                     <thead>
                         <tr>
                             <th>DATE</th>
                             <th>TICKER</th>
-                            <th>RECENT BUYS</th>
-                            <th>SHARES</th>
+                            <th>TRANSACTIONS</th>
                             <th>AMOUNT</th>
-                            <th>PRICE SINCE</th>
-                            <th>PRICE NOW</th>
+                            <th>PRICE</th>
+                            <th>CODE</th>
+                            <th>OWNERSHIP TYPE</th>
                         </tr>
                     </thead>
-                        {Object.keys(this.props.filingSummary).map(id => {
-                            return (
-                                <FilingSummaryCell key={id} filingSummary={this.props.filingSummary[id]} ticker={id}/>
-                            )
-                        })}
+                    {this.props.filingSummary.map(filing => {            
+                        return (
+                            <FilingSummaryCell key={filing.ticker} filing={filing}/>
+                        )
+                    })}
                 </table>
             </div>
         );
@@ -57,7 +68,7 @@ class FilingSummaryList extends Component {
 }
 
 FilingSummaryList.propTypes = {
-    filingSummary: PropTypes.object.isRequired,
+    filingSummary: PropTypes.array.isRequired,
     getFilings: PropTypes.func.isRequired,
     userInfo: PropTypes.object
 }
