@@ -1,7 +1,7 @@
 export const SERVER = 'http://localhost:3000';
 
 //Internal keys are all uppercase
-export const GET_FILINGS = 'FETCH_FILINGS';
+export const GET_FILINGS = 'GET_FILINGS';
 export const GET_BUY_HISTORY = 'GET_BUY_HISTORY';
 export const CLOSE_OTHER_CELLS = 'CLOSE_OTHER_CELLS';
 export const GET_BUYER_HISTORY = 'GET_BUYER_HISTORY';

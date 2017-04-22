@@ -78,7 +78,7 @@ class FilingSummaryCell extends Component {
                 <tr onClick={() => this.getTicker()}>
                     <td>{this.props.filing.date}</td>
                     <td>{this.props.filing.ticker}</td>
-                    <td>{this.props.filing.reporter}</td>
+                    <td>{this.props.filing.name}</td>
                     <td>{this.props.filing.transactionAmount}</td>
                     <td>{this.props.filing.transactionPrice}</td>
                     {this.buyOrSell()}

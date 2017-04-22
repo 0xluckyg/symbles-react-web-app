@@ -6,13 +6,13 @@ export const getFilings = () => {
     return dispatch => {
         fetch(`${keys.SERVER}/form4`,{ mode: 'cors' })
             .then(res => res.json())
-            .then(json => console.log(json));
-            
+            .then(data => dispatch(resolveGetFilings(data)));
     }        
 }
 
 export const resolveGetFilings = (data) => {
     return {
-
+        type: keys.GET_FILINGS,
+        payload: data
     }
 }
