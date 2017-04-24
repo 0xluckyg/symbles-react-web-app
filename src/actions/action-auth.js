@@ -1,32 +1,30 @@
 import * as keys from '../utilities/constants';
+import {Cookies} from "react-cookie";
 
-export const signUpUser = (userInfo) => {
-    console.log('USERINFO', JSON.stringify(userInfo));
+export const signUpUser = (userInfo) => {    
     return dispatch => {
         fetch(`${keys.SERVER}/signup`, {
-            method: 'POST',
-            credentials: 'include',
+            method: 'POST',            
             headers: {
                 'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(userInfo)
         })
-        .then(res => {
-            console.log('STATS',res.status);
-            console.log(res.headers);
-            console.log('RES',res);
-            return res.json()
-        })
+        .then(res => res.json())
         .then(body =>  dispatch(resolveSignUp(body)));
     }
 }
 
 export const resolveSignUp = (body) => {    
-    console.log(body);
+    const d = new Date();
+    d.setTime(d.getTime() + (60*60*24*30));
+    const cookies = new Cookies();
+    cookies.set('token', body.token, {path: "/", expires: d});
+
     return {
         type: keys.USER_SIGN_UP,
-        payload: body
+        payload: body.user
     }
 }
 
