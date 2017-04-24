@@ -1,18 +1,25 @@
 import * as keys from '../utilities/constants';
-import * as mock from '../utilities/mock-files';
-import axios from 'axios';
 
 export const getFilings = () => {
     return dispatch => {
-        fetch(`${keys.SERVER}/form4`,{ mode: 'cors' })
+        fetch(`${keys.SERVER}/form4`, {
+                method: 'GET'
+            })
             .then(res => res.json())
-            .then(data => dispatch(resolveGetFilings(data)));
+            .then(body => dispatch(resolveGetFilings(body)));
     }        
 }
 
-export const resolveGetFilings = (data) => {
+export const resolveGetFilings = (body) => {
     return {
         type: keys.GET_FILINGS,
-        payload: data
+        payload: body
+    }
+}
+
+export const closeOtherCells = (bool) => {
+    return {
+        type: keys.CLOSE_OTHER_CELLS,
+        payload: bool
     }
 }

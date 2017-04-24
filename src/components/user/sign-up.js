@@ -12,10 +12,10 @@ class SignUp extends Component {
         super(props)
 
         this.state = {
-            userFirstName:"",
-            userLastName:"",
-            userEmail:"",
-            userPassword:""
+            firstName:"",
+            lastName:"",
+            email:"",
+            password:""
         }
 
         this.responseFacebook = this.responseFacebook.bind(this);
@@ -28,20 +28,20 @@ class SignUp extends Component {
         this.onPasswordChange = this.onPasswordChange.bind(this);
     }
 
-    onFirstNameChange(event){this.setState({userFirstName:event.target.value})}
-    onLastNameChange(event){this.setState({userLastName:event.target.value})}
-    onEmailChange(event){this.setState({userEmail:event.target.value})}
-    onPasswordChange(event){this.setState({userPassword:event.target.value})}
+    onFirstNameChange(event){this.setState({firstName:event.target.value})}
+    onLastNameChange(event){this.setState({lastName:event.target.value})}
+    onEmailChange(event){this.setState({email:event.target.value})}
+    onPasswordChange(event){this.setState({password:event.target.value})}
 
     onFormSubmit(event) {
         event.preventDefault();
 
         this.props.signUpUser(this.state)
         this.setState({
-            userFirstName:"",
-            userLastName:"",
-            userEmail:"",
-            userPassword:""
+            firstName:"",
+            lastName:"",
+            email:"",
+            password:""
         });
     }
 
