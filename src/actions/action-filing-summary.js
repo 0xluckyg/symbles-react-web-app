@@ -1,13 +1,14 @@
 import * as keys from '../utilities/constants';
+import axios from 'axios';
 
 export const getFilings = () => {
     return dispatch => {
-        fetch(`${keys.SERVER}/form4`, {
-                method: 'GET'
-            })
-            .then(res => res.json())
-            .then(body => dispatch(resolveGetFilings(body)));
-    }        
+        axios.get(`${keys.SERVER}/form4`)
+            .then(res => dispatch(resolveGetFilings(res.data)))
+            .catch(err => {
+                console.log(err);
+            });
+    }
 }
 
 export const resolveGetFilings = (body) => {
