@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
-import {getFilings} from '../../actions/index';
+import {getFilings} from '../../actions';
 import {bindActionCreators} from 'redux';
 import FilingSummaryCell from './filing-summary-cell';
 import styles from '../../styles/filing-summary-list.css';
@@ -16,7 +16,7 @@ class FilingSummaryList extends Component {
     }
 
     subscribeHeader(){
-        if (!this.props.userInfo.userIsSubscribed) {
+        if (!this.props.userInfo.subscription) {
             return(
                 <div className={styles.subscribeDiv}>
                     <Link to="/subscribe" className={styles.subscribeText}>SUBSCRIBE NOW FOR REAL TIME DATA WITH TEXT NOTIFICATIONS</Link>

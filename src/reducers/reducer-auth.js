@@ -11,28 +11,14 @@ export const ReducerAuthView = (state, action) => {
     }
 }
 
-function fetchUser(userInfo){
+function fileUser(user){
 
     let returnUser = {
-        userEmail: userInfo.userEmail,
-        userFirstName: "User",
-        userLastName: "Name",
-        userIsSubscribed: false,
-        userIsLoggedIn: true
-    }
-
-    //Fetch user from database
-    return returnUser;
-}
-
-function registerUser(userInfo){
-
-    let returnUser = {
-        userEmail: userInfo.userEmail,
-        userFirstName: userInfo.userFirstName,
-        userLastName: userInfo.userLastName,
-        userIsSubscribed: false,
-        userIsLoggedIn: true
+        userEmail: user.email || '',
+        firstName: user.firstName,
+        lastName: user.lastName,
+        subscription: user.subscribed,
+        isLoggedIn: true
     }
 
     return returnUser;
@@ -43,21 +29,18 @@ export const ReducerUserInfo = (state, action) => {
     if (state == null) {
         state = {
             userEmail: "",
-            userFirstName: "",
-            userLastName: "",
-            userIsSubscribed: false,
-            userIsLoggedIn: false
+            firstName: "",
+            lastName: "",
+            subscription: false,
+            isLoggedIn: false
         }
     }
 
     switch (action.type) {
-        case keys.USER_SIGN_UP:
-            state = registerUser(action.payload)
-            return state;
-        case keys.USER_SIGN_IN:
-            state = fetchUser(action.payload)
-            return state;
-        default:
+        case keys.GET_USER:
+            state = fileUser(action.payload)
+            return state;        
+        default:            
             return state;
     }
 }

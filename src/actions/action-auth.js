@@ -41,17 +41,34 @@ export const signInUser = (userInfo) => {
     }
 }
 
-export const resolveGetUser = (body) => {    
-    const d = new Date();
-    d.setTime(d.getTime() + (60*60*24*30));
-    const cookies = new Cookies();
-    cookies.set('token', body.token, {path: "/", expires: d});
+export const resolveGetUser = (user) => {    
 
-    console.log('BODY',body);
+    function saveToken() {
+        const d = new Date();
+        d.setTime(d.getTime() + (60*60*24*14));        
+        const cookies = new Cookies();
+        cookies.set('token', user.token, {path: "/", expires: d});
+    }
+
+    function saveLocal() {
+        localStorage.setItem('firstName', user.firstName);
+        localStorage.setItem('lastName', user.lastName);
+        localStorage.setItem('subscription', user.subscribed);
+    }
+
+    saveToken();
+    saveLocal();
 
     return {
-        type: keys.USER_SIGN_UP,
-        payload: body.user
+        type: keys.GET_USER,
+        payload: user.user
+    }
+}
+
+export const getSavedUser = (user) => {
+    return {
+        type: keys.GET_USER,
+        payload: user
     }
 }
 

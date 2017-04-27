@@ -29,7 +29,7 @@ class NavigationBar extends Component {
         }
 
         this.openHamburger = this.openHamburger.bind(this);
-        this.isSubscribed = this.isSubscribed.bind(this);
+        this.subscription = this.subscription.bind(this);
         this.isLoggedIn = this.isLoggedIn.bind(this);
     }
 
@@ -44,15 +44,15 @@ class NavigationBar extends Component {
         }
     }
 
-    isSubscribed(){
-        if (!this.props.userInfo.userIsSubscribed) {
+    subscription(){
+        if (!this.props.userInfo.subscription) {
             return <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/subscribe">SUBSCRIBE</Link> </li>
         }
         return null
     }
 
     isLoggedIn(type){
-        if (!this.props.userInfo.userIsLoggedIn){
+        if (!this.props.userInfo.isLoggedIn){
             switch(type){
                 case 0:
                     return <li onClick={() => this.props.showLogInOrSignUpView(2)} className={styles.navLinkRight}> SIGN UP </li>
@@ -62,7 +62,15 @@ class NavigationBar extends Component {
                     null
             }
         } else {
-            if (type == 0) { return <li className={styles.navLinkRight}> Welcome {this.props.userInfo.userFirstName} </li> } else {return null}
+            if (type == 0) { 
+                return (
+                    <li className={styles.navLinkRight}>
+                        <Link className ={styles.navLink} to="/myPage">Welcome {this.props.userInfo.firstName}! </Link>
+                    </li> 
+                )
+            } else { 
+                return null 
+            }
         }
     }
 
@@ -84,7 +92,7 @@ class NavigationBar extends Component {
                 <ul className={styles.navBar}>
                     <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/">HOME</Link> </li>
                     <li className={styles.navLinkLeft}> <Link className={styles.navLink} to="/about">ABOUT</Link> </li>
-                    {this.isSubscribed()}
+                    {this.subscription()}
                     {this.isLoggedIn(0)}
                     {this.isLoggedIn(1)}
                     <li onClick={() => this.openHamburger()} className={styles.navLinkRight}> <i className="fa fa-bars fa-lg"></i> </li>

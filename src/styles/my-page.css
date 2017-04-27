@@ -1,0 +1,26 @@
+.myPage {
+    display: flex;
+    flex: 2;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: 'yellow';
+}
+
+.settingsView {
+    display: flex;
+    flex: 1;
+
+    background-color: 'red';
+}
+
+.tickersView{
+    display: flex;
+    flex: 1;
+
+    background-color: 'blue';
+}
+
+
+
