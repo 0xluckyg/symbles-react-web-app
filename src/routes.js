@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, IndexRoute, Redirect} from 'react-router';
 import App from './components/app'
-import FilingSummaryList from './components/main/filing-summary-list';
+import Main from './components/main';
 import About from './components/secondary/about-us';
 import Subscribe from './components/secondary/subscribe';
 import MyPage from './components/secondary/my-page/index';
@@ -27,7 +27,7 @@ function requireAuth(nextState, replace) {
 const Routes = (
         <div>
             <Route path="/" component={App}>
-                <IndexRoute component={FilingSummaryList}/>
+                <IndexRoute component={Main}/>
                 <Route path="/about" component={About}/>
                 <Route path="/subscribe" component={Subscribe}/>
                 <Route path="/myPage" component={MyPage} onEnter={requireAuth}/>

@@ -1,10 +1,9 @@
 import * as keys from '../utilities/constants';
 
-export const ReducerNews = (state = [], action) => {
-    switch (action.type) {
+export const ReducerNews = (state = [], action) => {    
+    switch (action.type) {        
         case keys.GET_NEWS:            
-            state = action.payload;
-            return state;
+            return state.concat(action.payload);
         default:
             return state;
     }

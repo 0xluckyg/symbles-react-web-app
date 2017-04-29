@@ -1,37 +1,8 @@
 .mainDiv {
-    position: absolute;
-
-    width: 100%;
-    margin-top: 48px;
-}
-
-.subscribeDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 48px;
-
-    /*background-color: rgb(128,157,253);*/
-    background-color: rgba(0,0,0,0.7);
-    cursor: pointer;
-
-    -webkit-transition: background-color 0.4s ease-in-out;
-    -moz-transition: background-color 0.4s ease-in-out;
-    -ms-transition: background-color 0.4s ease-in-out;
-    -o-transition: background-color 0.4s ease-in-out;
-    transition: background-color 0.4s ease-in-out;
-}
-
-.subscribeDiv:hover {
-    /*background-color: rgb(87,113,201);*/
-    background-color: rgba(0,0,0,0.5);
-    transition: 0.4s;
-}
-
-.subscribeText {
-    color: white;
-    text-decoration: none;
+    position: relative;
+    display: block;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 table {

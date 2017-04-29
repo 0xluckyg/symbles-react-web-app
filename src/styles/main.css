@@ -1,0 +1,50 @@
+.mainDiv {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    margin-top: 48px;
+}
+
+.contentDiv {
+    display: flex;
+    flex-direction: row    
+}
+
+.filingList {
+    height: 100%;
+    width: 70%;
+}
+
+.newsList {
+    height: 100%;
+    width: 30%;
+}
+
+.subscribeDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 48px;
+
+    /*background-color: rgb(128,157,253);*/
+    background-color: rgba(0,0,0,0.7);
+    cursor: pointer;
+
+    -webkit-transition: background-color 0.4s ease-in-out;
+    -moz-transition: background-color 0.4s ease-in-out;
+    -ms-transition: background-color 0.4s ease-in-out;
+    -o-transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.subscribeDiv:hover {
+    /*background-color: rgb(87,113,201);*/
+    background-color: rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+.subscribeText {
+    color: white;
+    text-decoration: none;
+}

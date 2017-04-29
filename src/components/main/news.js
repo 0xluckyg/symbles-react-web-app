@@ -6,27 +6,47 @@ class News extends Component {
 
     constructor(props){
         super(props)
+
+        this.renderNewsList = this.renderNewsList.bind(this);
+    }
+
+    renderNewsList() {
+        console.log('News NOTYET', this.props.newsList);        
+        this.props.newsList.map(news => {
+            console.log('NEWS', news);
+            return (
+                    <NewsCard key={news.ticker} summary={news}/>
+            )
+        })
     }
 
     render() {        
         return (
-            <div className={styles.mainDiv}>
-                <NewsCard summary={this.props.news}/>
+            <div className={styles.mainDiv}>                          
+                {this.props.newsList.map(news => {                        
+                    return (
+                        <NewsCard key={news.ticker} summary={news}/>
+                    )
+                })}
             </div>
         );
     }
 }
 
-const NewsCard = ({summary}) => {
+const NewsCard = ({summary}) => {    
     return (
         <div>
-
+            <h3>{summary.ticker}</h3>
+            <h3>{summary.title}</h3>
+            <p>{summary.source}</p>
+            <p>{summary.date}</p>
+            <p>{summary.content}</p>
         </div>
     );
 }
 
-function mapStateToProps({news}){
-    return {news};
+function mapStateToProps({newsList}){
+    return {newsList};
 }
 
 export default connect(mapStateToProps)(News);

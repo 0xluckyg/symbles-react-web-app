@@ -11,19 +11,7 @@ class FilingSummaryList extends Component {
     constructor(props){
         super(props)
 
-        this.subscribeHeader = this.subscribeHeader.bind(this);
         this.renderFilings = this.renderFilings.bind(this);
-    }
-
-    subscribeHeader(){
-        if (!this.props.userInfo.subscription) {
-            return(
-                <div className={styles.subscribeDiv}>
-                    <Link to="/subscribe" className={styles.subscribeText}>SUBSCRIBE NOW FOR REAL TIME DATA WITH TEXT NOTIFICATIONS</Link>
-                </div>
-            )
-        }
-        return null
     }
 
     renderFilings(){        
@@ -41,9 +29,7 @@ class FilingSummaryList extends Component {
     render() {
         //Date, Ticker, Transactions, Amount, Price, Transaction Code, Ownership Type
         return (
-            <div className={styles.mainDiv}>
-                {console.log(this.props.filingSummary)}
-                {this.subscribeHeader()}
+            <div className={styles.mainDiv}>                                
                 <table className={styles.filingSummaryTable}>                    
                     <thead>
                         <tr>

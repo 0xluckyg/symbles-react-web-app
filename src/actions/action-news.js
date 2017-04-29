@@ -49,8 +49,7 @@ export const getNews = (ticker) => {
     }
 }
 
-export const resolveGetNews = (summary) => {
-    console.log(summary);
+export const resolveGetNews = (summary) => {    
     return {
         type: keys.GET_NEWS,
         payload: summary
