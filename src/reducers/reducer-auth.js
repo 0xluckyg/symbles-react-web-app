@@ -18,14 +18,15 @@ function fileUser(user){
         firstName: user.firstName,
         lastName: user.lastName,
         subscription: user.subscribed,
-        isLoggedIn: true
+        isLoggedIn: user.isLoggedIn
     }
+
+    console.log("RET",returnUser);
 
     return returnUser;
 }
 
-export const ReducerUserInfo = (state, action) => {
-
+export const ReducerUserInfo = (state, action) => {        
     if (state == null) {
         state = {
             userEmail: "",
@@ -37,7 +38,7 @@ export const ReducerUserInfo = (state, action) => {
     }
 
     switch (action.type) {
-        case keys.GET_USER:
+        case keys.SET_USER:
             state = fileUser(action.payload)
             return state;        
         default:            

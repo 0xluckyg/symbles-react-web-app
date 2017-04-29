@@ -9,20 +9,19 @@ import {userInfo} from './reducers';
 import {connect} from 'react-redux';
 import { CookiesProvider, withCookies, Cookies } from "react-cookie";
 
-function userLoggedIn() {        
+function requireAuth(nextState, replace) {
+    
     const cookies = new Cookies();    
     let loggedIn = false;
     if (cookies.get('token') !== undefined) {
         loggedIn = true;
     }
 
-    return <Route exact path="/myPage" render={() => (
-            loggedIn ? (                         
-                <MyPage/>                
-            ) : (
-                <Redirect to="/"/>
-            )
-        )}/>
+    if (!loggedIn) {
+        replace({
+            pathname: '/'
+        })
+    }
 }
 
 const Routes = (
@@ -31,7 +30,7 @@ const Routes = (
                 <IndexRoute component={FilingSummaryList}/>
                 <Route path="/about" component={About}/>
                 <Route path="/subscribe" component={Subscribe}/>
-                {userLoggedIn()}
+                <Route path="/myPage" component={MyPage} onEnter={requireAuth}/>
             </Route>
         </div>
     )

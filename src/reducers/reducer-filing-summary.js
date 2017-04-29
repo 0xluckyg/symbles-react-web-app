@@ -62,7 +62,7 @@ function formatReporterName(clusterName, rawName) {
     }    
 }
 
-export default function(state = [], action) {
+export const ReducerFilingSummary = (state = [], action) => {
     switch (action.type) {
         case keys.GET_FILINGS:            
             state = formatFilings(action.payload);

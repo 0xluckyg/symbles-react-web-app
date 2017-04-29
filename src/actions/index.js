@@ -3,6 +3,7 @@ import * as mock from '../utilities/mock-files';
 
 export * from './action-filing-summary';
 export * from './action-auth';
+export * from './action-news';
 
 export const getBuyHistory = (id) => {
     return {

@@ -1,5 +1,7 @@
 import * as keys from '../utilities/constants';
 import axios from 'axios';
+import store from '../store';
+import {getNews} from './index';
 
 export const getFilings = () => {
     return dispatch => {
@@ -11,7 +13,16 @@ export const getFilings = () => {
     }
 }
 
+function dispatchGetNews(filings) {
+    filings.map(filingArray => {
+        const ticker = filingArray[0].ticker;
+        store.dispatch(getNews(ticker))
+    })
+}
+
 export const resolveGetFilings = (body) => {
+    dispatchGetNews(body);
+
     return {
         type: keys.GET_FILINGS,
         payload: body

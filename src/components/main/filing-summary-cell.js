@@ -8,30 +8,6 @@ import FilingSummarySubtable from './subtable/filing-subtable';
 import * as keys from '../../utilities/constants';
 import Transition from 'react-addons-css-transition-group';
 
-const Subtable = ({isOpen, ticker}) => {
-    const transitionNames = {
-        enter: cellStyles.enter,
-        enterActive: cellStyles.enterActive,
-        leave: cellStyles.leave,
-        leaveActive: cellStyles.leaveActive
-    }
-
-    const transitionProperties = {
-        transitionEnterTimeout:500,
-        transitionLeaveTimeout:500
-    }
-
-    return (
-        <tr className={cellStyles.tableSubviewTr}>
-            <td className={cellStyles.tableSubviewTd} colSpan={7}>
-                <Transition {...transitionProperties} transitionName={transitionNames}>
-                    {(isOpen) ? <FilingSummarySubtable ticker={ticker}/> : null}
-                </Transition>
-            </td>
-        </tr>
-    );
-}
-
 class FilingSummaryCell extends Component {
 
     constructor(props){
@@ -89,6 +65,30 @@ class FilingSummaryCell extends Component {
         );
     }
 };
+
+const Subtable = ({isOpen, ticker}) => {
+    const transitionNames = {
+        enter: cellStyles.enter,
+        enterActive: cellStyles.enterActive,
+        leave: cellStyles.leave,
+        leaveActive: cellStyles.leaveActive
+    }
+
+    const transitionProperties = {
+        transitionEnterTimeout:500,
+        transitionLeaveTimeout:500
+    }
+
+    return (
+        <tr className={cellStyles.tableSubviewTr}>
+            <td className={cellStyles.tableSubviewTd} colSpan={7}>
+                <Transition {...transitionProperties} transitionName={transitionNames}>
+                    {(isOpen) ? <FilingSummarySubtable ticker={ticker}/> : null}
+                </Transition>
+            </td>
+        </tr>
+    );
+}
 
 FilingSummaryCell.propTypes = {
     filing: PropTypes.object.isRequired,

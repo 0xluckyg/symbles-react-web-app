@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavigationBar from './navigation-bar';
 import { CookiesProvider, withCookies, Cookies } from "react-cookie";
 import {bindActionCreators} from 'redux';
-import {getUserByToken, getSavedUser} from '../actions/index';
+import {getUserByToken, setUser} from '../actions/index';
 import {connect} from 'react-redux';
 import '../styles/general.css';
 
@@ -21,10 +21,14 @@ class App extends Component {
             const firstName = localStorage.getItem('firstName');
             const lastName = localStorage.getItem('lastName');
             const subscription = localStorage.getItem('subscription');            
-            this.props.getSavedUser({
+            this.props.setUser({
                 firstName, lastName, subscription, isLoggedIn: true
             })
             this.props.getUserByToken(token);
+        } else {
+            this.props.setUser({
+                firstName: "", lastName: "", subscription: false, isLoggedIn: false, userEmail: ""
+            });
         }
     }
 
@@ -44,7 +48,7 @@ function mapStateToProps({filingSummary, userInfo}){
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators(
-        {getUserByToken, getSavedUser},
+        {getUserByToken, setUser},
         dispatch
     );
 }

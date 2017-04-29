@@ -9,7 +9,7 @@ export const signUpUser = (userInfo) => {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-        }).then(res => dispatch(resolveGetUser(res.data)))
+        }).then(res => dispatch(resolveGetUser(res.data.user)))
         .catch(err => {
              console.log(err);
         });
@@ -20,7 +20,7 @@ export const getUserByToken = (token) => {
     return dispatch => {
         axios.get(`${keys.SERVER}/user/me`, {
             params: { token }
-        }).then(res => dispatch(resolveGetUser(res.data)))
+        }).then(res => dispatch(resolveGetUser(res.data.user)))
         .catch(err => {
              console.log(err);
         });
@@ -34,7 +34,7 @@ export const signInUser = (userInfo) => {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-        }).then(res => dispatch(resolveGetUser(res.data)))
+        }).then(res => dispatch(resolveGetUser(res.data.user)))
         .catch(err => {
              console.log(err);
         });
@@ -59,15 +59,18 @@ export const resolveGetUser = (user) => {
     saveToken();
     saveLocal();
 
+    user.isLoggedIn = true;
+    if (user.subscription === undefined) { user.subscription = 0 }
+
     return {
-        type: keys.GET_USER,
-        payload: user.user
+        type: keys.SET_USER,
+        payload: user
     }
 }
 
-export const getSavedUser = (user) => {
+export const setUser = (user) => {
     return {
-        type: keys.GET_USER,
+        type: keys.SET_USER,
         payload: user
     }
 }

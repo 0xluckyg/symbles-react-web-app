@@ -9,13 +9,12 @@ import Settings from './settings';
 class MyPage extends Component {
     
     constructor(props){
-        super(props)
-        console.log('wtf');
-    }
+        super(props)            
+    }    
 
     render() {
         return(
-            <div  className={styles.myPage} style={myPageStyle}>
+            <div  className={styles.myPage} >
                 <Tickers/>
                 <Settings/>
             </div>

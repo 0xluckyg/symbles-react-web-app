@@ -8,23 +8,43 @@ class Tickers extends Component {
     constructor(props){
         super(props)
 
-        console.log('wtf');
+        this.state = {
+            ticker: ''
+        };
 
+        this.addButton = this.addButton.bind(this);
+        this.tickerChange = this.tickerChange.bind(this);
+    }
+
+    addButton() {
+        if (this.state.ticker !== '') {
+            return <button className={styles.addTickerSubmit} type="submit">ADD</button>
+        }
+    }
+
+    tickerChange(event) {        
+        this.setState({ticker: event.target.value});        
     }
 
     render() {
-        // console.log('wtf');
+        
         return(
-            <div  className={styles.tickersView}>
-                <h3>My Tickers</h3>
+            <div  className={styles.tickersView}>                
+                <h3 className={styles.mainTitle}>My Tickers</h3>
                 <hr/>
-                <form>
-                    <input></input>
-                    <submit></submit>
-                </form>
-                <ul>
-                    <li></li>
-                </ul>                
+                <div className={styles.tickersContent}>
+                    <form className={styles.addTickerForm}>
+                        <input
+                            onChange={this.tickerChange}
+                            type="text"
+                            placeholder="Type in a ticker ex: AMD">
+                        </input>
+                        {this.addButton()}
+                    </form>
+                    <ul>
+                        <li></li>
+                    </ul>                
+                </div>
             </div>
         );
     }

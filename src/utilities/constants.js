@@ -1,13 +1,14 @@
 export const SERVER = 'http://localhost:3000';
 
 //Internal keys are all uppercase
+export const GET_NEWS = 'GET_NEWS';
 export const GET_FILINGS = 'GET_FILINGS';
 export const GET_BUY_HISTORY = 'GET_BUY_HISTORY';
 export const CLOSE_OTHER_CELLS = 'CLOSE_OTHER_CELLS';
 export const GET_BUYER_HISTORY = 'GET_BUYER_HISTORY';
 export const RESET_BUYER_HISTORY = 'RESET_BUYER_HISTORY';
 export const USER_AUTH_VIEW = 'USER_AUTH_VIEW';
-export const GET_USER = 'GET_USER';
+export const SET_USER = 'SET_USER';
 
 //company filing keys
 export const TICKER = 'TICKER';

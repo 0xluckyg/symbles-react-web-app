@@ -51,7 +51,7 @@ class NavigationBar extends Component {
         return null
     }
 
-    isLoggedIn(type){
+    isLoggedIn(type){        
         if (!this.props.userInfo.isLoggedIn){
             switch(type){
                 case 0:
