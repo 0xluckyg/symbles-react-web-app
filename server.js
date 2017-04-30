@@ -1,5 +1,5 @@
 //For dev:
-
+//"webpack-dev-server --progress --inline --hot"
 
 const express = require('express');
 const path = require('path');
