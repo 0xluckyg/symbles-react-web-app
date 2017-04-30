@@ -37,7 +37,7 @@ class Main extends Component {
                     <div className={styles.newsList}>
                         <News/>
                     </div>
-                </div>
+                </div>                
             </div>
         );
     }

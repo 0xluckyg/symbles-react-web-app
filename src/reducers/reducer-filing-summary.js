@@ -41,7 +41,7 @@ function formatFilings(listOfTransactions) {
 
 function formatDate(date) {
     date = new Date(date);
-    date = moment(date).format('MMMM DD, YYYY');
+    date = moment(date).format('MMMM DD, YY');
     return date;    
 }
 

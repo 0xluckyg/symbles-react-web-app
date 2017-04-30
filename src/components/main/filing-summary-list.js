@@ -41,12 +41,12 @@ class FilingSummaryList extends Component {
                             <th>CODE</th>
                             <th>OWNERSHIP TYPE</th>
                         </tr>
-                    </thead>
-                    {this.props.filingSummary.map(filing => {            
+                    </thead>                    
+                    {this.props.filingSummary.map(filing => {                                    
                         return (
                             <FilingSummaryCell key={filing.ticker} filing={filing}/>
                         )
-                    })}
+                    })}                    
                 </table>
             </div>
         );

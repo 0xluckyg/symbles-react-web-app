@@ -35,12 +35,15 @@ class News extends Component {
 
 const NewsCard = ({summary}) => {    
     return (
-        <div>
+        <div className={styles.cardMainDiv}>
             <h3>{summary.ticker}</h3>
             <h3>{summary.title}</h3>
-            <p>{summary.source}</p>
-            <p>{summary.date}</p>
-            <p>{summary.content}</p>
+            <p className={styles.subInformation}>
+                <span>{summary.source}</span>
+                <span className={styles.date}>{summary.date}</span>
+            </p>            
+            <a href={summary.link} className={styles.link}>{summary.content}</a>
+            <hr/>
         </div>
     );
 }
