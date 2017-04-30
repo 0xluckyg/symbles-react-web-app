@@ -5,8 +5,10 @@ import cheerio from 'cheerio';
 import _ from 'lodash';
 const xmlParser = xml2js.Parser({explicitArray : false});
 
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+
 function makeNewsUrl(ticker) {
-    const base = `https://www.google.com/finance/company_news?q=${ticker}&output=rss`
+    const base = corsAnywhere + `https://www.google.com/finance/company_news?q=${ticker}&output=rss`
     return base;
 }
 

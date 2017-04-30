@@ -1,5 +1,5 @@
-// export const SERVER = 'http://localhost:3000';
-export const SERVER = 'https://symbles-server.herokuapp.com';
+export const SERVER = 'http://localhost:3000';
+// export const SERVER = 'https://symbles-server.herokuapp.com';
 
 //Internal keys are all uppercase
 export const GET_NEWS = 'GET_NEWS';
