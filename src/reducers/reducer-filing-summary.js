@@ -45,7 +45,7 @@ function formatDate(date) {
     return date;    
 }
 
-function formatReporterName(clusterName, rawName) {
+function formatReporterName(clusterName, rawName) {    
     rawName = rawName.toLowerCase();
     const rawNameArr = rawName.split(' ');
     
@@ -55,7 +55,9 @@ function formatReporterName(clusterName, rawName) {
     const firstName = firstNameRaw[0].toUpperCase() + firstNameRaw.slice(1);
     const lastNameInitial = lastNameRaw[0].toUpperCase();    
 
-    if (clusterName !== '') {
+    if (clusterName.includes(`${firstName} ${lastNameInitial}`)) {
+        return `${clusterName}`
+    } else if (clusterName !== '') {
         return `${clusterName}, ${firstName} ${lastNameInitial}`
     } else {
         return `${firstName} ${lastNameInitial}`
